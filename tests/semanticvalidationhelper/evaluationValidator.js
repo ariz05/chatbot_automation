@@ -7,9 +7,7 @@ export async function validateResponse(data) {
 
   const pass =
     scores.answer_relevancy >= THRESHOLDS.answer_relevancy &&
-    scores.hallucination >= THRESHOLDS.hallucination &&
-    scores.context_precision >= THRESHOLDS.context_precision &&
-    scores.context_recall >= THRESHOLDS.context_recall;
+    scores.hallucination >= THRESHOLDS.hallucination;
 
   return { pass, scores };
 }

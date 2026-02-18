@@ -106,7 +106,7 @@ class ChatbotPage {
 
     // validate bot response with either single or multiple paragraphs
     async expectedBotResponse(question, context, expectedAnswer) {
-        //await this.validateAutoScrollFunctionality();
+        await this.validateAutoScrollFunctionality();
         console.log(`validating bot response. Expected response: ${expectedAnswer}`);
         let actualMessage = '';
         let paragraphLocators;
@@ -125,7 +125,22 @@ class ChatbotPage {
 
             actualMessage = fullText.trim();
             console.log(`Bot response: ${actualMessage}`);
-            expect(actualMessage).toContain(context);
+
+            //check if all expected keywords are present in bot response
+            let containsAll = true;
+            for (const word of context.split(',')) {
+                if (!actualMessage.includes(word.trim())) {
+                    containsAll = false;
+                    break;
+                }
+            }
+
+            expect(containsAll).toBeTruthy();
+            console.log('Bot response contains all expected keywords from context');
+            console.log(`Question: ${question}`);
+            console.log(`Context: ${context}`);
+            console.log(`Expected Answer: ${expectedAnswer}`);
+
             const result = await validateResponse({
                 question,
                 context,

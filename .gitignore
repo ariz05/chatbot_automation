@@ -8,3 +8,4 @@ node_modules/
 /playwright/.auth/
 /Archived_reports/
 /allure-results/
+/evaluation-report.json/
