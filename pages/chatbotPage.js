@@ -1,7 +1,7 @@
 // chatbotPage.js
 import { Page, expect } from '@playwright/test';
-import { validateResponse } from '../tests/semanticvalidationhelper/evaluationValidator.js';
-import { logEvaluation } from '../tests/semanticvalidationhelper/reportLogger';
+import { validateResponse } from '../utils/semanticvalidationhelper/evaluationValidator.js';
+import { logEvaluation } from '../utils/semanticvalidationhelper/reportLogger.js';
 
 
 class ChatbotPage {
@@ -77,7 +77,7 @@ class ChatbotPage {
                     await this.page.keyboard.press('Enter');
                     await this.checkMessageLoadingImageHidden();
                     //await expect(this.containerBotMessage).toBeVisible({ timeout: 100000 });
-                    await this.page.waitForTimeout(100000);
+                    //await this.page.waitForTimeout(100000);
                     console.log(`Message sent to chatbot: ${messages}`);
                     break;
                 }
@@ -140,6 +140,7 @@ class ChatbotPage {
             console.log(`Question: ${question}`);
             console.log(`Context: ${context}`);
             console.log(`Expected Answer: ${expectedAnswer}`);
+            console.log(`Actual Answer: ${actualMessage}`);
 
             const result = await validateResponse({
                 question,
@@ -192,7 +193,7 @@ class ChatbotPage {
     async validateAutoScrollFunctionality() {
         const previousScrollHeight = await this.getScrollHeight();
         console.log(`Previous scroll height: ${previousScrollHeight}`);
-        const lastBotMessage = await this.containerBotMessage.locator('p').last();
+        const lastBotMessage = await this.containerBotMessage.locator('p, li').last();
         lastBotMessage.scrollIntoViewIfNeeded();
         const currentScrollHeight = await this.getScrollHeight();
         console.log(`Current scroll height: ${currentScrollHeight}`);

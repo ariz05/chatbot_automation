@@ -12,6 +12,11 @@ Make sure you have the following installed:
 - [npm](https://www.npmjs.com/get-npm)
 - Git (for version control)
 - Allure commandline (for report generation)
+- OpenRouter SDK
+- Semantic similarity scoring
+- Answer relevancy metric
+- Hallucination detection metric
+
 
 ### Optional (Windows users)
 Install PowerShell or use Git Bash if using Unix-style commands.
@@ -20,12 +25,23 @@ Install PowerShell or use Git Bash if using Unix-style commands.
 
 ## 📦 2. Install Project Dependencies
 
-Navigate to the project root and install dependencies:
+=> Navigate to the project root and install dependencies:
 
-```bash
-npm install
-```
+Install all dependencies listed in package.json file
 
+---> npm install
+
+Install playwright
+
+---> npm init playwright@latest
+
+Set up Semantic validator Engine
+
+---> npm install @playwright/test openai dotenv
+
+Set up Allure reporting 
+
+---> npm install -g allure-commandline
 ---
 
 ## 📁 3. Project Structure Overview
@@ -33,8 +49,15 @@ npm install
 ```
 project-root/
 ├── tests/
-│   └── chatbot_tests/
-│       └── Chatbot.spec.js
+│   |└── chatbot_tests/
+│   |   └── Chatbot.spec.js
+|   └── semanticvalidationhelper/
+|        └── config.js
+|        └── evaluationEngine.js
+|        └── evaluationValidator.js
+|        └── openrouterClient.js
+|        └── reportLogger.js
+|
 ├── utils/
 │   └── generateAllureReport.js
 ├── test-data/
@@ -52,14 +75,12 @@ project-root/
 
 Create `.env.qa`, `.env.dev`, etc. inside project-root/envConfig. Example `envConfig/.env.qa`:
 
-```
-ENV=qa
-BASE_URL=https://ask.u.ae/en/
-```
-
 These are dynamically picked up using `process.env`.
 
----
+```
+ENV=qa
+BASE_URL=https://beta-ask.u.ae/en/uask/
+```
 
 Test file:  
 `tests/chatbot_tests/chatbot.spec.js`
@@ -67,17 +88,15 @@ Test file:
 ---
 
 ## 🚀 8. Run the Tests
-
-
-### All test cases for UI
-```bash
-npm run test
 ```
 
 ### Filter by test category
 ```bash
-$env:LANGUAGE="en"; $env:ENV="qa"; npm run test
-$env:LANGUAGE="ar"; $env:ENV="qa"; npm run test
+1. To run tests to valdate in English language
+$env:LANGUAGE="en"; $env:ENV="qa"; $env:OPENROUTER_API_KEY="${key}"; npm run clean:allure ; npx playwright test chatbot.spec.js --project=chromium ; npm run allure:report
+
+1. To run tests to valdate in Arabic language
+$env:LANGUAGE="en"; $env:ENV="qa"; $env:OPENROUTER_API_KEY="${key}"; npm run clean:allure ; npx playwright test chatbot.spec.js --project=chromium ; npm run allure:report
 ```
 
 ---

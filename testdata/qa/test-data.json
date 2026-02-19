@@ -7,17 +7,16 @@
             "InputMessage": "What is the minimum salary requirement for sponsoring family members for a residence visa in the UAE?",
             "ExpectedKeyword": "salary, residence visa, family members, 4,000, UAE",
             "ExpectedResponse": "To sponsor family members for a residence visa in the UAE, the expatriate resident must have a minimum salary of AED 4,000 or AED 3,000 plus accommodation"
-            
         }
     ],
     "ar": [
         {
-        "TestCaseId": 1,
-        "TestCaseDescription": "to validate Greetings message from the bot in Arabic",
-        "direction": "rtl",
-        "InputMessage": "مرحبًا",
-		"ExpectedKeyword": "كيف يمكنني مساعدتك اليوم؟",
-        "ExpectedResponse": "كيف يمكنني مساعدتك اليوم؟"
-    }
+            "TestCaseId": 1,
+            "TestCaseDescription": "to validate Greetings message from the bot in Arabic",
+            "direction": "rtl",
+            "InputMessage": "مرحبًا",
+            "ExpectedKeyword": "كيف يمكنني مساعدتك اليوم؟",
+            "ExpectedResponse": "كيف يمكنني مساعدتك اليوم؟"
+        }
     ]
 }
