@@ -27,7 +27,6 @@ class ChatbotPage {
             await this.acceptButton.click();
             console.log('Clicked on Accept and continue button');
         }
-        //await this.page.waitForTimeout(10000);
         await expect(this.chatInput).toBeVisible();
     }
 
@@ -76,16 +75,12 @@ class ChatbotPage {
                     console.log('Send button is focused');
                     await this.page.keyboard.press('Enter');
                     await this.checkMessageLoadingImageHidden();
-                    //await expect(this.containerBotMessage).toBeVisible({ timeout: 100000 });
                     //await this.page.waitForTimeout(100000);
                     console.log(`Message sent to chatbot: ${messages}`);
                     break;
                 }
 
             }
-            // //await this.containerBotMessage.waitFor({ state: 'visible' });
-            // await expect(this.containerBotMessage).toBeVisible({ timeout: 100000 });
-            // //await this.containerBotMessage.waitFor({ state: 'visible' });
 
         }
         else {
@@ -142,12 +137,12 @@ class ChatbotPage {
             console.log(`Expected Answer: ${expectedAnswer}`);
             console.log(`Actual Answer: ${actualMessage}`);
 
-            const result = await validateResponse({
+            const result = await validateResponse(
                 question,
                 context,
                 expectedAnswer,
                 actualMessage
-            });
+            );
 
             console.log("Evaluation Scores:", result.scores);
 
@@ -159,7 +154,7 @@ class ChatbotPage {
         else {
             throw new Error("No text found in bot response.");
         }
-        return finalmessage;
+        return actualMessage;
     }
 
 

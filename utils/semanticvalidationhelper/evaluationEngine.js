@@ -1,11 +1,11 @@
 import { callLLM } from "./openrouterClient.js";
 
-export async function evaluateLLMResponse({
+export async function evaluateLLMResponse(
   question,
   context,
   expectedAnswer,
   actualAnswer
-}) {
+) {
 
   const prompt = `
 You are evaluating a chatbot answer.

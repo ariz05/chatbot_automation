@@ -1,19 +1,15 @@
 import { evaluateLLMResponse } from "./evaluationEngine.js";
 import { THRESHOLDS } from "./config.js";
 
-export async function validateResponse({
-  question,
-  context,
-  expectedAnswer,
-  actualAnswer
-}) {
+export async function validateResponse(question,
+                context,
+                expectedAnswer,
+                actualMessage) {
 
-  const scores = await evaluateLLMResponse({
-  question,
-  context,
-  expectedAnswer,
-  actualAnswer
-});
+  const scores = await evaluateLLMResponse(question,
+                context,
+                expectedAnswer,
+                actualMessage);
 
   const pass =
     scores.answer_relevancy >= THRESHOLDS.answer_relevancy &&
