@@ -1,0 +1,30 @@
+Disclaimer popup is visible
+Clicked on Accept and continue button
+Executing TestCase ID: 1 - to validate minimum salary requirement for sponsoring family members for a residence visa in the UAE
+Focusing on chat input box 
+Chat input box is empty
+Sending message to chatbot: What is the minimum salary requirement for sponsoring family members for a residence visa in the UAE?
+Send button is focused
+Waiting for bot response to load...
+Message sent to chatbot: What is the minimum salary requirement for sponsoring family members for a residence visa in the UAE?
+Chat input box is cleared after sending message
+Previous scroll height: 22
+Current scroll height: 22
+Scroll functionality is working as expected.
+validating bot response. Expected response: To sponsor family members for a residence visa in the UAE, the expatriate resident must have a minimum salary of AED 4,000 or AED 3,000 plus accommodation
+Bot message is visible
+Number of steps in Bot response: 1
+Bot response: The minimum salary requirement for sponsoring family members for a residence visa in the UAE is AED 4,000 per month or AED 3,000 plus accommodation.
+Bot response contains all expected keywords from context
+Question: What is the minimum salary requirement for sponsoring family members for a residence visa in the UAE?
+Context: salary, residence visa, family members, 4,000, UAE
+Expected Answer: To sponsor family members for a residence visa in the UAE, the expatriate resident must have a minimum salary of AED 4,000 or AED 3,000 plus accommodation
+Actual Answer: The minimum salary requirement for sponsoring family members for a residence visa in the UAE is AED 4,000 per month or AED 3,000 plus accommodation.
+Evaluation Scores: {
+  answer_relevancy: 1,
+  hallucination: 1,
+  context_precision: 1,
+  context_recall: 1
+}
+ Input message : What is the minimum salary requirement for sponsoring family members for a residence visa in the UAE? | Bot Expected response : To sponsor family members for a residence visa in the UAE, the expatriate resident must have a minimum salary of AED 4,000 or AED 3,000 plus accommodation
+Text is aligned as per expected direction.Text direction is: ltr

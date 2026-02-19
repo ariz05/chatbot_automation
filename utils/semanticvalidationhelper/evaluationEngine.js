@@ -26,11 +26,15 @@ Score between 0 and 1:
 
 1. answer_relevancy
 2. hallucination (1 = no hallucination)
+3. context_precision
+4. context_recall
 
 Return ONLY valid JSON:
 {
   "answer_relevancy": 0.0,
-  "hallucination": 0.0
+  "hallucination": 0.0,
+  "context_precision": 0.0,
+  "context_recall": 0.0
 }
 `;
 

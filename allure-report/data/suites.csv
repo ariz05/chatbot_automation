@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Fri Feb 20 01:11:04 IST 2026","Fri Feb 20 01:13:43 IST 2026","158760","chromium","chatbot_tests\chatbot.spec.js","Chatbot response validation tests for language: EN -> 1","","","Test to to validate minimum salary requirement for sponsoring family members for a residence visa in the UAE",""
